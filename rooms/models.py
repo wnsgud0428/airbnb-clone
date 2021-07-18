@@ -23,7 +23,8 @@ class RoomType(AbstractItem):
     pass
 
     class Meta:
-        verbose_name = "Room Type"  # 뿐만 아니라 order도 meta 클래스에서 할 수 있음
+        verbose_name = "Room Type"
+        # 뿐만 아니라 order도 meta 클래스에서 할 수 있음
 
 
 class Amenity(AbstractItem):
