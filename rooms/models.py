@@ -11,7 +11,7 @@ class AbstractItem(core_models.TimeStampedModel):
     name = models.CharField(max_length=80)
 
     class Meta:
-        abstract = True
+        abstract = True  # "나 얘를 정의하긴 할껀데 DB에 넣지는 않을꺼야"라는 의미에요.
 
     def __str__(self):
         return self.name
