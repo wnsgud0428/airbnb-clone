@@ -4,7 +4,6 @@ from . import models
 
 @admin.register(models.RoomType, models.Facility, models.Amenity, models.HouseRule)
 class ItemAdmin(admin.ModelAdmin):
-
     """Item Admin Definition"""
 
     list_display = ("name", "used_by")
@@ -17,7 +16,6 @@ class ItemAdmin(admin.ModelAdmin):
 
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
-
     """Room Admin Definition"""
 
     fieldsets = (
@@ -36,7 +34,6 @@ class RoomAdmin(admin.ModelAdmin):
         ),
         ("Last Details", {"fields": ("host",)}),
     )
-
     list_display = (
         "name",
         "country",
@@ -51,6 +48,7 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "count_amenities",
         "count_photos",
+        "total_rating",
     )
 
     list_filter = (
@@ -63,9 +61,7 @@ class RoomAdmin(admin.ModelAdmin):
         "city",
         "country",
     )
-
     search_fields = ("=city", "^host__username")
-
     filter_horizontal = ("amenities", "facilities", "house_rules")
 
     def count_amenities(self, obj):
@@ -77,4 +73,6 @@ class RoomAdmin(admin.ModelAdmin):
 
 @admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
+    """ """
+
     pass
