@@ -1,42 +1,40 @@
 from django.db import models
+from django.urls import reverse
 from django_countries.fields import CountryField
 from core import models as core_models
 
-# Create your models here.
-
 
 class AbstractItem(core_models.TimeStampedModel):
+
     """Abstract Item"""
 
     name = models.CharField(max_length=80)
 
     class Meta:
-        abstract = True  # "나 얘를 정의하긴 할껀데 DB에 넣지는 않을꺼야"라는 의미에요.
+        abstract = True
 
     def __str__(self):
         return self.name
 
 
 class RoomType(AbstractItem):
-    """RoomType Model Definition"""
 
-    pass
+    """RoomType Model Definition"""
 
     class Meta:
         verbose_name = "Room Type"
-        # 뿐만 아니라 order도 meta 클래스에서 할 수 있음
 
 
 class Amenity(AbstractItem):
-    """Amenity Model Definition"""
 
-    pass
+    """Amenity Model Definition"""
 
     class Meta:
         verbose_name_plural = "Amenities"
 
 
 class Facility(AbstractItem):
+
     """Facility Model Definition"""
 
     pass
@@ -49,13 +47,12 @@ class HouseRule(AbstractItem):
 
     """HouseRule Model Definition"""
 
-    pass
-
     class Meta:
         verbose_name = "House Rule"
 
 
 class Photo(core_models.TimeStampedModel):
+
     """Photo Model Definition"""
 
     caption = models.CharField(max_length=80)
@@ -93,12 +90,15 @@ class Room(core_models.TimeStampedModel):
     facilities = models.ManyToManyField("Facility", related_name="rooms", blank=True)
     house_rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)
 
-    def save(self, *args, **kwargs):
-        self.city = str.capitalize(self.city)
-        super().save(*args, **kwargs)  # Call the real save() method
-
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("rooms:detail", kwargs={"pk": self.pk})
 
     def total_rating(self):
         all_reviews = self.reviews.all()
