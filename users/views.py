@@ -1,5 +1,6 @@
 import os
 import requests
+from django.http import HttpResponse
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import FormView, DetailView, UpdateView
 from django.urls import reverse_lazy
@@ -165,12 +166,11 @@ def kakao_callback(request):
             raise KakaoException("Can't get authorization code.")
         access_token = token_json.get("access_token")
         profile_request = requests.get(
-            "https://kapi.kakao.com/v2/user/me",
+            "https://kapi.kakao.com/v1/user/me",
             headers={"Authorization": f"Bearer {access_token}"},
         )
         profile_json = profile_request.json()
-        print(profile_json)
-        email = profile_json.get("kakao_account", None).get("email", None)
+        email = profile_json.get("kaccount_email", None)
         if email is None:
             raise KakaoException("Please also give me your email")
         properties = profile_json.get("properties")
@@ -267,3 +267,10 @@ def switch_hosting(request):
     except KeyError:
         request.session["is_hosting"] = True
     return redirect(reverse("core:home"))
+
+
+def switch_language(request):
+    lang = request.GET.get("lang", None)
+    if lang is not None:
+        pass
+    return HttpResponse(status=200)
