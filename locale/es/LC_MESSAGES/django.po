@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 23:51+0900\n"
+"POT-Creation-Date: 2022-01-13 03:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,47 +30,79 @@ msgstr "Por favor no nos copies."
 msgid "All rights reserved"
 msgstr "Todos los derechos reservados"
 
-#: templates/rooms/room_list.html:26
+#: .\templates\partials\nav.html:6
+msgid "Stop hosting"
+msgstr "Cambiar a Invitado"
+
+#: .\templates\partials\nav.html:8
+msgid "Start hosting"
+msgstr "Cambiar a Host"
+
+#: .\templates\partials\nav.html:13
+msgid "Create Room"
+msgstr "Crear Habitación"
+
+#: .\templates\partials\nav.html:15
+msgid "Profile"
+msgstr "Perfil"
+
+#: .\templates\partials\nav.html:16
+msgid "Log out"
+msgstr "Cerrar Sesión"
+
+#: .\templates\partials\nav.html:18
+msgid "Log in"
+msgstr "Iniciar Sesión"
+
+#: .\templates\partials\nav.html:19
+msgid "Sign up"
+msgstr ""
+
+#: .\templates\rooms\room_detail.html:31
+msgid "Save to Favourites"
+msgstr ""
+
+#: .\templates\rooms\room_list.html:26
 #, python-format
 msgid "Page %(current_page)s of %(total_pages)s"
 msgstr "Página %(current_page)s de %(total_pages)s"
 
-#: users/mixins.py:13
+#: .\users\mixins.py:13
 msgid "Can't go there"
 msgstr "No puedes ir ahí"
 
-#: users/models.py:21
+#: .\users\models.py:21
 msgid "Male"
 msgstr "Hombre"
 
-#: users/models.py:22
+#: .\users\models.py:22
 msgid "Female"
 msgstr "Mujer"
 
-#: users/models.py:23
+#: .\users\models.py:23
 msgid "Other"
 msgstr "Otro"
 
-#: users/models.py:30
+#: .\users\models.py:30
 msgid "English"
 msgstr "Inglés"
 
-#: users/models.py:31
+#: .\users\models.py:31
 msgid "Korean"
 msgstr "Coreano"
 
-#: users/models.py:51
+#: .\users\models.py:51
 msgid "gender"
 msgstr "género"
 
-#: users/models.py:53
+#: .\users\models.py:53
 msgid "bio"
 msgstr "biografía"
 
-#: users/models.py:56
+#: .\users\models.py:56
 msgid "language"
 msgstr "lenguage"
 
-#: users/models.py:83
+#: .\users\models.py:83
 msgid "Verify Airbnb Account"
 msgstr "Verificar Cuenta de Airbnb"
